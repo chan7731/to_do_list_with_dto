@@ -1,6 +1,6 @@
 package com.chan7731.to_do_list_with_dto.controller;
 
-import com.chan7731.to_do_list_with_dto.dto.SignupDTO;
+import com.chan7731.to_do_list_with_dto.dto.SignupDto;
 import com.chan7731.to_do_list_with_dto.model.User;
 import com.chan7731.to_do_list_with_dto.repository.UserRepository;
 import jakarta.validation.Valid;
@@ -19,14 +19,14 @@ public class SignupController {
 
     @GetMapping("/signup")
     public String showSignup(Model model) {
-        model.addAttribute("signupDto", new SignupDTO());
+        model.addAttribute("signupDto", new SignupDto());
 
         return "signup";
     }
 
     @PostMapping("/signup")
     public String doSignup(
-            @Valid @ModelAttribute("signupDto") SignupDTO signupDTO,
+            @Valid @ModelAttribute("signupDto") SignupDto signupDTO,
             BindingResult bindingResult,
             Model model
     ) {
@@ -34,7 +34,7 @@ public class SignupController {
             return "signup";
         }
 
-        User user = User.builder()
+        User user = User.builder() //중복 가입 확인
                 .username(signupDTO.getUsername())
                 .password(signupDTO.getPassword())
                 .build();
