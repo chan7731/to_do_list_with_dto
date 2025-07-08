@@ -35,4 +35,10 @@ public class TodoRepository {
 
         return jdbcTemplate.update(sql, todo.getUserId(), todo.getTitle(), todo.isCompleted());
     }
+
+    public int deleteByIdAndUserId(int id, int userId) {
+        String sql = "DELETE FROM todo WHERE id = ? AND user_id = ?";
+
+        return jdbcTemplate.update(sql, id, userId);
+    }
 }
