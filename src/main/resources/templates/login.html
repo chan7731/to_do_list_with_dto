@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+<body>
+<h1>로그인</h1>
+<div th:if="${param.registered}" class="success">
+  회원가입이 완료되었습니다! 로그인 해주세요.
+</div>
+</body>
+</html>
