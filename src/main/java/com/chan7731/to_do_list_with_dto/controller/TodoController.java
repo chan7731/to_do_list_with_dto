@@ -48,7 +48,7 @@ public class TodoController {
     }
 
     @PostMapping("/add")
-    public String add (
+    public String add(
             @Valid @ModelAttribute TodoDto todoDto,
             BindingResult bindingResult,
             HttpSession httpSession
